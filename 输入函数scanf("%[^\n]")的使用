@@ -1,0 +1,22 @@
+ #include <stdio.h> 
+int main (void) 
+{ 
+	 char str1[128], str2[128], str3[128]; 
+	 printf ("\nEnter str1: ");
+ 	 scanf ("%[^\n]", str1);  //从键盘输入字符到str1直到出现'\n'结束输入'\n'会保留在缓冲区
+ 	 getchar();     //加getchar（）以消费缓冲区中的'\n'
+   printf ("\nstr1 = %s", str1); 
+   printf ("\nEnter str2: ");
+   scanf ("%[^\n]", str2);
+   getchar();
+   printf ("\nstr2 = %s", str2);
+	 printf ("\nEnter str3: ");
+	 scanf ("%[^\n]", str3);
+	 getchar();
+	 printf ("\nstr3 = %s", str3);
+	 printf ("\n"); 
+	 return 0; 
+}
+ 当您使用scanf()读取字符串时，您的格式字符串（ %[^\n] ）告诉函数读取每个不是'\n'字符。这会在输入缓冲区中留下'\n'字符。
+ 因此，当您尝试读取str2和str3 ， scanf() str3发现缓冲区中的第一个内容是'\n'并且由于格式字符串，它不会将其从输入缓冲区中删除。 
+ 你需要的是在从输入缓冲区读取的时间之间的getchar()（通常在scanf()之后立即放置）。
