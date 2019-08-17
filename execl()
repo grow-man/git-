@@ -1,0 +1,39 @@
+/*
+.1接收用户输入信息
+.2对用户输入信息做分割
+.3利用exec（）函数将子进程替换成用户输入的命令
+*/
+
+#include<stdio.h>
+#include<unistd.h>
+#include<string.h>
+
+int str_tok(char command[][16]);
+
+int main(void)
+{
+  char cmd[][16] = {0};
+  
+  return 0;
+}
+
+int str_tok(char command[][16])
+{
+  char data[16] = {0};
+  int index = 0;
+  char *first = NULL;
+  char *other = NULL;
+  fgets(data,sizeof(data),stdin);
+  data[strlen(data) - 1] = '\0';
+  if(strncmp(data,"quit",4) == 0)
+  {
+    return index;
+  }
+  first = strtok(data," ");
+  strcpy(command[index++],fi);
+  while((other = strtok(NULL," ") != NULL){
+  
+    strcpy(command[index++],other);
+  }
+  
+}
